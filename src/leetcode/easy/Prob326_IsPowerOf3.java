@@ -1,3 +1,4 @@
+package leetcode.easy;
 
 public class Prob326_IsPowerOf3 {
 
