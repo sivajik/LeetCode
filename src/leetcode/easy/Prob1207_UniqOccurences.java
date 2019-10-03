@@ -9,7 +9,6 @@ public class Prob1207_UniqOccurences {
 		System.out.println(uniqueOccurrences(new int[] { 1, 2, 2, 1, 1, 3 }));
 		System.out.println(uniqueOccurrences(new int[] { 1, 2 }));
 		System.out.println(uniqueOccurrences(new int[] { -3, 0, 1, -3, 1, 1, 1, -3, 10, 0 }));
-
 	}
 
 	public static boolean uniqueOccurrences(int[] arr) {
