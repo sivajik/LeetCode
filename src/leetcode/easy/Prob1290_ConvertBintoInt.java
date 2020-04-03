@@ -16,13 +16,14 @@ public class Prob1290_ConvertBintoInt {
 		
 		return Integer.parseInt(sb.toString(), 2);
 	}
-}
+	
+	static class ListNode {
+		int val;
+		ListNode next;
 
-class ListNode {
-	int val;
-	ListNode next;
-
-	ListNode(int x) {
-		val = x;
+		ListNode(int x) {
+			val = x;
+		}
 	}
 }
+
