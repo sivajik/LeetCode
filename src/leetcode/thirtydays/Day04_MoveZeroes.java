@@ -12,7 +12,8 @@ public class Day04_MoveZeroes {
 		moveZeroes(new int[] { 0, 0, 0 });
 	}
 
-	public static void moveZeroes(int[] nums) {
+	// useless approach - 2 pointers.
+	public static void moveZeroesComplex(int[] nums) {
 		int slowPointer = 0;
 		int fastPointer = slowPointer + 1;
 
@@ -32,6 +33,20 @@ public class Day04_MoveZeroes {
 				nums[fastPointer] = temp;
 				slowPointer++;
 			}
+		}
+		System.out.println(Arrays.toString(nums));
+	}
+	
+	public static void moveZeroes(int[] nums) {
+		int c = 0;
+		for (int i = 0; i < nums.length; i++) {
+			if (nums[i] != 0) {
+				nums[c++] = nums[i];
+			}
+		}
+		
+		for (int j = c; j < nums.length; j++) {
+			nums[j] = 0;
 		}
 		System.out.println(Arrays.toString(nums));
 	}
