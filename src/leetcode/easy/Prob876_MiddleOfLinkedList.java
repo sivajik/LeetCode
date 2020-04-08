@@ -4,17 +4,15 @@ public class Prob876_MiddleOfLinkedList {
 	public static void main(String[] args) throws Exception {
 		Solution1 s = new Solution1();
 		s.add(1);
-		//s.add(2);
-		//s.add(3);
-		//s.add(4);
-		//s.add(5);
-		//s.add(6);
-		
+		// s.add(2);
+		// s.add(3);
+		// s.add(4);
+		// s.add(5);
+		// s.add(6);
+
 		System.out.println(s.middleNode(s.getHead()));
 	}
 }
-
-
 
 class Solution1 {
 	class ListNode {
@@ -30,15 +28,27 @@ class Solution1 {
 			return "ListNode [val=" + val + "]";
 		}
 	}
-	
+
 	ListNode head = null;
 	int size = 0;
-	
+
 	public ListNode getHead() {
 		return head;
 	}
-	
-	public ListNode middleNode(ListNode head) {
+
+	// 2 pointers one sprints at normal and other sprints at double speed.
+	public static ListNode middleNode(ListNode head) {
+		ListNode slowPtr = head;
+		ListNode fastPtr = head;
+
+		while (fastPtr != null && fastPtr.next != null) {
+			slowPtr = slowPtr.next;
+			fastPtr = fastPtr.next.next;
+		}
+		return slowPtr;
+	}
+
+	public ListNode middleNodeOld(ListNode head) {
 		ListNode temp = head;
 		int sizeOfList = 0;
 		while (temp != null) {
@@ -48,11 +58,11 @@ class Solution1 {
 
 		int index = 0;
 		temp = head;
-		while (index != sizeOfList/2) {
+		while (index != sizeOfList / 2) {
 			temp = temp.next;
 			index++;
 		}
-		return temp;	
+		return temp;
 	}
 
 	public void add(int value) {
@@ -68,7 +78,7 @@ class Solution1 {
 		}
 		size++;
 	}
-	
+
 	public void print() {
 		ListNode temp = head;
 		for (int i = 0; i < size; i++) {
