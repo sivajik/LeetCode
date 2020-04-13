@@ -5,10 +5,10 @@ import java.util.HashMap;
 public class Day13_ContiguousArray {
 
 	public static void main(String[] args) {
-//		System.out.println(findMaxLength(new int[] { 1, 1, 1, 1, 0, 0, 0, 0, 0, 1 }));
+		System.out.println(findMaxLength(new int[] { 1, 1, 1, 1, 0, 0, 0, 0, 0, 1 }));
 //		System.out.println(findMaxLength(new int[] { 0, 1 }));
 //		System.out.println(findMaxLength(new int[] { 0, 1, 0 }));
-		System.out.println(findMaxLength(new int[] { 0, 1, 1, 0, 1, 1, 1, 0 }));
+//		System.out.println(findMaxLength(new int[] { 0, 1, 1, 0, 1, 1, 1, 0 }));
 	}
 
 	public static int findMaxLength(int[] nums) {
