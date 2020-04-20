@@ -4,7 +4,9 @@ public class Day19_SearchInSrotedArray {
 
 	public static void main(String[] args) {
 		System.out.println(search(new int[] { 4, 5, 6, 7, 0, 1, 2 }, 0));
-
+		System.out.println(search(new int[] { 4, 5, 6, 7, 0, 1, 2 }, 100));
+		System.out.println(search(new int[] { 4, 5, 6, 7, 0, 1, 2 }, 4));
+		System.out.println(search(new int[] { 4, 5, 6, 7, 0, 1, 2 }, 2));
 	}
 
 	public static int search(int[] nums, int target) {
