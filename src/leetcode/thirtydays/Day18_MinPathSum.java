@@ -1,6 +1,6 @@
 package leetcode.thirtydays;
 
-public class Prob18_MinPathSum {
+public class Day18_MinPathSum {
 
 	public static void main(String[] args) {
 		System.out.println(minPathSum(new int[][] { { 1, 3, 1 }, { 1, 5, 1 }, { 4, 2, 1 } }));
