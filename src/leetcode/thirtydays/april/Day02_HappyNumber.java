@@ -1,4 +1,4 @@
-package leetcode.thirtydays;
+package leetcode.thirtydays.april;
 
 import java.util.HashMap;
 import java.util.Map;

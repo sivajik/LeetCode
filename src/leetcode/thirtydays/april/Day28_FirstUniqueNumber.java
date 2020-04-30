@@ -1,4 +1,4 @@
-package leetcode.thirtydays;
+package leetcode.thirtydays.april;
 
 public class Day28_FirstUniqueNumber {
 
