@@ -7,6 +7,9 @@ public class Prob258_AddDigits {
 		System.out.println(addDigits(1371981));
 		System.out.println(addDigits(29101986));
 		System.out.println(addDigits(6101956));
+		
+		System.out.println(addDigits(13071982));
+
 	}
 
 	public static int addDigits(int num) {
