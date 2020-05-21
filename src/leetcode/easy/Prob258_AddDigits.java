@@ -3,9 +3,10 @@ package leetcode.easy;
 public class Prob258_AddDigits {
 
 	public static void main(String[] args) {
-		System.out.println(addDigits(38));
-		System.out.println(addDigits(130782));
-		System.out.println(addDigits(10));
+		System.out.println(addDigits(260314));
+		System.out.println(addDigits(1371981));
+		System.out.println(addDigits(29101986));
+		System.out.println(addDigits(6101956));
 	}
 
 	public static int addDigits(int num) {
