@@ -1,10 +1,16 @@
 package leetcode.thirtydays.may;
 
+import java.util.Stack;
+
 public class Day23_BSTFromPreOrder {
 
 	public static void main(String[] args) {
 		TreeNode myRoot = bstFromPreorder(new int[] { 8, 5, 1, 7, 10, 12 });
 		preOrder(myRoot);
+		System.out.println();
+		TreeNode myRoot1 = bstFromPreorderv2(new int[] { 8, 5, 1, 7, 10, 12 });
+		preOrder(myRoot1);
+
 	}
 
 	static class TreeNode {
@@ -25,6 +31,37 @@ public class Day23_BSTFromPreOrder {
 			preOrder(root.left);
 			preOrder(root.right);
 		}
+	}
+
+	// { 8, 5, 1, 7, 10, 12 }
+	public static TreeNode bstFromPreorderv2(int[] preorder) {
+		if (preorder == null) {
+			return null;
+		}
+		Stack<TreeNode> s = new Stack<TreeNode>();
+
+		TreeNode root = new TreeNode(preorder[0]);
+		s.push(root);
+
+		for (int i = 1; i < preorder.length; i++) {
+			TreeNode t = null;
+
+			while (!s.isEmpty() && s.peek().val > preorder[i]) {
+				t = s.pop();
+			}
+
+			if (t != null) {
+				TreeNode x = new TreeNode(preorder[i]);
+				t.left = x;
+				s.push(x);
+			} else {
+				t = s.peek();
+				TreeNode x = new TreeNode(preorder[i]);
+				t.right = x;
+				s.push(x);
+			}
+		}
+		return root;
 	}
 
 	public static TreeNode bstFromPreorder(int[] preorder) {
