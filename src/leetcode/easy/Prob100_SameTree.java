@@ -4,7 +4,7 @@ public class Prob100_SameTree {
 
 	public static void main(String[] args) {
 		TreeNode p = prepareTree(new int[] { 1, 2, 3 });
-		TreeNode q = prepareTree(new int[] { 1, 2, 3 });
+		TreeNode q = prepareTree(new int[] { 1, 2, 33 });
 		System.out.println(isSameTree(p, q));
 	}
 
