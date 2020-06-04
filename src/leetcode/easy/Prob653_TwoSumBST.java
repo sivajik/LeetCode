@@ -3,8 +3,36 @@ package leetcode.easy;
 public class Prob653_TwoSumBST {
 
 	public static void main(String[] args) {
-		TreeNode r = prepareTree(new int[] { 2, -999, 3 });
-		System.out.println(findTarget(r, 6));
+		TreeNode r = prepareTree(new int[] { 1 });
+		// System.out.println(findTarget(r, 6));
+		System.out.println(findTargetBetterWay(r, 2));
+	}
+
+	static public boolean findTargetBetterWay(TreeNode root, int k) {
+		java.util.List<Integer> l = new java.util.ArrayList<>();
+		inOrderBetterWay(root, l);
+
+		int low = 0, high = l.size() - 1;
+		while (low < high) {
+			int sum = l.get(low);
+			sum += l.get(high);
+			if (sum == k) {
+				return true;
+			} else if (sum < k) {
+				low++;
+			} else {
+				high--;
+			}
+		}
+		return false;
+	}
+
+	public static void inOrderBetterWay(TreeNode tree, java.util.List<Integer> l) {
+		if (tree != null) {
+			inOrderBetterWay(tree.left, l);
+			l.add(tree.val);
+			inOrderBetterWay(tree.right, l);
+		}
 	}
 
 	public static boolean foundEle = false;
