@@ -23,7 +23,7 @@ public class Prob111_MinDepthOfTee {
 			for (int i = 0; i < size; i++) {
 				TreeNode t = q.poll();
 
-				if (isLeaf(t)) {
+				if (isLeafNode(t)) {
 					return ans;
 				}
 				if (t.left != null) {
@@ -38,7 +38,7 @@ public class Prob111_MinDepthOfTee {
 		return ans;
 	}
 
-	static public boolean isLeaf(TreeNode t) {
+	static public boolean isLeafNode(TreeNode t) {
 		return t != null && t.left == null && t.right == null;
 	}
 
