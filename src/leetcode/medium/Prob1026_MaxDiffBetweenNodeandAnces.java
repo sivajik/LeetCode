@@ -3,10 +3,11 @@ package leetcode.medium;
 public class Prob1026_MaxDiffBetweenNodeandAnces {
 
 	public static void main(String[] args) {
-		System.out.println(maxAncestorDiff(prepareTree(new int[] { 8, 3, 10, 1, 6 })));
+		System.out.println(maxAncestorDiff(prepareTree(new int[] { 0, -999, 1 /* 8, 3, 10, 1, 6 */ })));
 	}
 
 	static public int maxAncestorDiff(TreeNode root) {
+		maxDiff = 0;
 		helper(root, root.val, root.val);
 		return maxDiff;
 	}
