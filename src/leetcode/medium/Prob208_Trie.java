@@ -10,74 +10,75 @@ public class Prob208_Trie {
 		System.out.println(param_2 + " -> " + param_3);
 	}
 
-}
+	static class Trie {
 
-class Trie {
+		class TrieNode {
+			TrieNode[] children;
+			boolean isLeafNode;
 
-	class TrieNode {
-		TrieNode[] children;
-		boolean isLeafNode;
-
-		TrieNode() {
-			this.children = new TrieNode[26];
-		}
-	}
-
-	TrieNode root;
-
-	public Trie() {
-		this.root = new TrieNode();
-	}
-
-	public void insert(String word) {
-		TrieNode tmp = root;
-
-		for (int i = 0; i < word.length(); i++) {
-			char c = word.charAt(i);
-			int index = c - 'a';
-			if (tmp.children[index] == null) {
-				TrieNode x = new TrieNode();
-				tmp.children[index] = x;
-				tmp = x;
-			} else {
-				tmp = tmp.children[index];
+			TrieNode() {
+				this.children = new TrieNode[26];
 			}
 		}
-		tmp.isLeafNode = true;
 
-	}
+		TrieNode root;
 
-	public boolean search(String word) {
-		TrieNode p = searchForNode(word);
-		if (p == null) {
+		public Trie() {
+			this.root = new TrieNode();
+		}
+
+		public void insert(String word) {
+			TrieNode tmp = root;
+
+			for (int i = 0; i < word.length(); i++) {
+				char c = word.charAt(i);
+				int index = c - 'a';
+				if (tmp.children[index] == null) {
+					TrieNode x = new TrieNode();
+					tmp.children[index] = x;
+					tmp = x;
+				} else {
+					tmp = tmp.children[index];
+				}
+			}
+			tmp.isLeafNode = true;
+
+		}
+
+		public boolean search(String word) {
+			TrieNode p = searchForNode(word);
+			if (p == null) {
+				return false;
+			} else {
+				if (p.isLeafNode) {
+					return true;
+				}
+			}
 			return false;
-		} else {
-			if (p.isLeafNode) {
+		}
+
+		public boolean startsWith(String prefix) {
+			TrieNode p = searchForNode(prefix);
+			if (p == null) {
+				return false;
+			} else {
 				return true;
 			}
 		}
-		return false;
-	}
 
-	public boolean startsWith(String prefix) {
-		TrieNode p = searchForNode(prefix);
-		if (p == null) {
-			return false;
-		} else {
-			return true;
-		}
-	}
-
-	private TrieNode searchForNode(String word) {
-		TrieNode tmp = root;
-		for (int i = 0; i < word.length(); i++) {
-			int index = word.charAt(i) - 'a';
-			if (tmp.children[index] != null) {
-				tmp = tmp.children[index];
-			} else {
-				return null;
+		private TrieNode searchForNode(String word) {
+			TrieNode tmp = root;
+			for (int i = 0; i < word.length(); i++) {
+				int index = word.charAt(i) - 'a';
+				if (tmp.children[index] != null) {
+					tmp = tmp.children[index];
+				} else {
+					return null;
+				}
 			}
+			return tmp == root ? null : tmp;
 		}
-		return tmp == root ? null : tmp;
 	}
 }
+
+
