@@ -18,18 +18,16 @@ public class Prob566_ReshapreTheMatrix {
 		}
 		int[][] newarr = new int[r][c];
 
-		int counter = 0;
-		int[] oneDimArr = new int[nums.length * (nums[0].length)];
-		for (int i = 0; i < nums.length; i++) {
-			for (int j = 0; j < nums[i].length; j++) {
-				oneDimArr[counter++] = nums[i][j];
-			}
-		}
-
-		counter = 0;
+		int cRow = 0;
+		int cCol = 0;
 		for (int i = 0; i < r; i++) {
 			for (int j = 0; j < c; j++) {
-				newarr[i][j] = oneDimArr[counter++];
+				newarr[i][j] = nums[cRow][cCol];
+				cCol++;
+				if (cCol % nums[0].length == 0) {
+					cRow = (cRow + 1) % nums.length;
+					cCol = 0;
+				}
 			}
 		}
 		return newarr;
