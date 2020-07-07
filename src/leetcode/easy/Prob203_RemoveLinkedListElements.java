@@ -3,9 +3,9 @@ package leetcode.easy;
 public class Prob203_RemoveLinkedListElements {
 
 	public static void main(String[] args) {
-		ListNode l1 = createList(new int[] { 1, 2, 3, 4, 5 });
+		ListNode l1 = createList(new int[] { 1, 1 });
 		print(l1);
-		ListNode l2 = removeElements(l1, 11);
+		ListNode l2 = removeElements(l1, 1);
 		print(l2);
 	}
 
@@ -16,17 +16,14 @@ public class Prob203_RemoveLinkedListElements {
 		while (temp != null) {
 			if (temp.val == val) {
 				if (prev == null) {
-					temp = temp.next;
 					head = head.next;
-					continue;
 				} else {
 					prev.next = temp.next;
-					temp = temp.next;
 				}
 			} else {
 				prev = temp;
-				temp = temp.next;
 			}
+			temp = temp.next;
 		}
 		return head;
 	}
