@@ -17,4 +17,11 @@ public class Prob342_IsPowerOf4 {
 			return n % 4 == 0 && isPowerOfFour(n / 4);
 		}
 	}
+	
+	static public boolean isPowerOfFourLogApproach(int num) {
+		if (num <= 0)
+			return false;
+		double logValue = Math.log(num) / Math.log(4);
+		return (logValue % 1) == 0;
+	}
 }
