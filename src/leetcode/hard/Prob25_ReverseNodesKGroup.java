@@ -4,16 +4,18 @@ public class Prob25_ReverseNodesKGroup {
 
 	public static void main(String[] args) {
 		ListNode n1 = new ListNode(1);
-		ListNode n2 = new ListNode(2);
+		ListNode n2 = new ListNode(4);
 		ListNode n3 = new ListNode(3);
-		ListNode n4 = new ListNode(4);
+		ListNode n4 = new ListNode(2);
 		ListNode n5 = new ListNode(5);
-
+		ListNode n6 = new ListNode(2);
+		
 		link(n1, n2);
 		link(n2, n3);
 		link(n3, n4);
 		link(n4, n5);
-
+		link(n5, n6);
+		
 		print(n1);
 		print(reverseKGroup(n1, 5));
 
