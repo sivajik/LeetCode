@@ -1,74 +1,96 @@
 package leetcode.medium;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+
 public class Prob987_VerticalOrderTraversal {
 
 	public static void main(String[] args) {
-		TreeNode root = prepareTree(new int[] { 1, 2, 3, 4, 6, 5, 7 });
+		TreeNode root = prepareTree(new int[] { 3, 9, 20, -999, -999, 15, 7 });
 		for (java.util.List<Integer> l : verticalTraversal(root)) {
 			System.out.println(l);
 		}
 	}
 
 	static class Pair {
-		int val;
-		int level;
+		int x;
+		int y;
 
-		Pair(int val, int level) {
+		int val;
+
+		TreeNode node;
+
+		Pair(int x, int y, int val, TreeNode node) {
+			this.x = x;
+			this.y = y;
 			this.val = val;
-			this.level = level;
+			this.node = node;
+		}
+
+		@Override
+		public String toString() {
+			return "Pair [x=" + x + ", y=" + y + ", " + ", val=" + val + "]";
 		}
 	}
 
-	static java.util.Map<Integer, java.util.List<Pair>> m = new java.util.TreeMap<>();
+	static java.util.Map<Integer, java.util.List<Pair>> m = null;
 
 	public static java.util.List<java.util.List<Integer>> verticalTraversal(TreeNode root) {
 		if (root == null) {
 			return new java.util.ArrayList<>();
 		}
+		m = new java.util.TreeMap<>();
 
-		traverse(root, 0);
+		// traverse(root, 0, 0, 0);
+		Queue<Pair> q = new LinkedList<Pair>();
+		q.add(new Pair(0, 0, root.val, root));
+		while (!q.isEmpty()) {
+			Pair t = q.poll();
 
-		java.util.List<java.util.List<Integer>> list = new java.util.ArrayList<>();
-		for (java.util.Map.Entry<Integer, java.util.List<Pair>> entry : m.entrySet()) {
-			java.util.List<Pair> t = entry.getValue();
-			java.util.Collections.sort(t, new java.util.Comparator<Pair>() {
+			if (m.containsKey(t.x)) {
+				List<Pair> l = m.get(t.x);
+				l.add(t);
+				m.put(t.x, l);
+			} else {
+				List<Pair> l = new ArrayList<>();
+				l.add(t);
+				m.put(t.x, l);
+			}
+
+			if (t.node.left != null) {
+				q.add(new Pair(t.x - 1, t.y + 1, t.node.left.val, t.node.left));
+			}
+			if (t.node.right != null) {
+				q.add(new Pair(t.x + 1, t.y + 1, t.node.right.val, t.node.right));
+			}
+		}
+		List<List<Integer>> ans = new ArrayList<>();
+
+		for (int i : m.keySet()) {
+			List<Pair> l = m.get(i);// -----4-----
+			Collections.sort(l, new Comparator<Pair>() {
 
 				@Override
-				public int compare(Pair o1, Pair o2) {
-					if (o1.level == o2.level) {
-						return o1.val - o2.val;
+				public int compare(Pair a, Pair b) {
+					if (a.y == b.y) {
+						return a.val - b.val;
 					} else {
-						return o1.level - o2.level;
+						return a.y - b.y;
 					}
 				}
-			});
 
-			java.util.List<Integer> tempList = new java.util.ArrayList<>();
-			for (Pair p : t) {
-				tempList.add(p.val);
+			}); // -----5----
+			List<Integer> aa = new ArrayList<>();
+			for (Pair m : l) {
+				aa.add(m.val);
 			}
-			list.add(tempList);
+			ans.add(aa);
 		}
-		return list;
-	}
-
-	private static void traverse(TreeNode root, int i) {
-		if (root == null) {
-			return;
-		}
-
-		if (m.containsKey(i)) {
-			java.util.List<Pair> l = m.get(i);
-			l.add(new Pair(root.val, i));
-			m.put(i, l);
-		} else {
-			java.util.List<Pair> l = new java.util.ArrayList<>();
-			l.add(new Pair(root.val, i));
-			m.put(i, l);
-		}
-
-		traverse(root.left, i - 1);
-		traverse(root.right, i + 1);
+		return ans;
 	}
 
 	public static TreeNode prepareTree(int[] values) {
