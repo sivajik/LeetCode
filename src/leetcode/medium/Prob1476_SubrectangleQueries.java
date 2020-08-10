@@ -16,15 +16,6 @@ class SubrectangleQueries {
 	int[][] data;
 
 	public SubrectangleQueries(int[][] rectangle) {
-		/*int rows = rectangle.length;
-		int cols = rectangle[0].length;
-
-		this.data = new int[rows][cols];
-		for (int i = 0; i < rows; i++) {
-			for (int j = 0; j < cols; j++) {
-				this.data[i][j] = rectangle[i][j];
-			}
-		}*/
 		this.data = rectangle;
 	}
 
