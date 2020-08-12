@@ -7,19 +7,18 @@ public class Prob98_ValidateBST {
 
 	}
 
-	public static boolean isValidBST(TreeNode root) {
-		return isValidBSTPrivate(root, Long.MIN_VALUE, Long.MAX_VALUE);
+	public boolean isValidBST(TreeNode root) {
+		return helper(root, Long.MIN_VALUE, Long.MAX_VALUE);
 	}
 
-	private static boolean isValidBSTPrivate(TreeNode root, long min, long max) {
+	private boolean helper(TreeNode root, long minValue, long maxValue) {
 		if (root == null) {
 			return true;
 		}
-		if (root.val >= max || root.val <= min) {
+		if (root.val <= minValue || root.val >= maxValue) {
 			return false;
 		}
-		return isValidBSTPrivate(root.left, min, root.val) && 
-					isValidBSTPrivate(root.right, root.val, max);
+		return helper(root.left, minValue, root.val) && helper(root.right, root.val, maxValue);
 	}
 
 	static class TreeNode {
