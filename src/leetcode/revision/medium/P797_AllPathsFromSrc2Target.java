@@ -7,17 +7,17 @@ public class P797_AllPathsFromSrc2Target {
 
 	public static void main(String[] args) {
 		java.util.List<java.util.List<Integer>> finalList = allPathsSourceTarget(
-				new int[][] { { 1, 2, 3}, { 3 }, { 3 }, {} });
+				new int[][] { { 1, 2 }, { 3 }, { 3 }, {} });
 		for (java.util.List<Integer> l : finalList) {
 			System.out.println(l);
 		}
 		System.out.println();
 		
-//		java.util.List<java.util.List<Integer>> finalList1 = allPathsSourceTarget(
-//				new int[][] { {4,3,1},{3,2,4},{3},{4},{}});
-//		for (java.util.List<Integer> l : finalList1) {
-//			System.out.println(l);
-//		}
+		java.util.List<java.util.List<Integer>> finalList1 = allPathsSourceTarget(
+				new int[][] { {4,3,1},{3,2,4},{3},{4},{}});
+		for (java.util.List<Integer> l : finalList1) {
+			System.out.println(l);
+		}
 	}
 
 	static public List<List<Integer>> allPathsSourceTarget(int[][] graph) {
