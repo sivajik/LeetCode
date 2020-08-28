@@ -3,7 +3,7 @@ package leetcode.thirtydays.august;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Day25_FizzBuzz {
+public class Day26_FizzBuzz {
 
 	public static void main(String[] args) {
 		System.out.println(fizzBuzz(15));
