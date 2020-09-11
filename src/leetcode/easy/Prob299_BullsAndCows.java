@@ -20,7 +20,6 @@ public class Prob299_BullsAndCows {
 
 		Map<Integer, Integer> map = new HashMap<>();
 
-		
 		for (int i = 0; i < secret.length(); i++) {
 			if (s[i] == g[i]) {
 				bullCounter++;
