@@ -18,16 +18,15 @@ public class Prob299_BullsAndCows {
 		char[] s = secret.toCharArray();
 		char[] g = guess.toCharArray();
 
+		Map<Integer, Integer> map = new HashMap<>();
+
+		
 		for (int i = 0; i < secret.length(); i++) {
 			if (s[i] == g[i]) {
 				bullCounter++;
 				s[i] = '*';
 				g[i] = '*';
-			}
-		}
-		Map<Integer, Integer> map = new HashMap<>();
-		for (int i = 0; i < s.length; i++) {
-			if (s[i] != '*') {
+			} else {
 				if (map.containsKey((s[i] - '0'))) {
 					map.put(s[i] - '0', 1 + map.get(s[i] - '0'));
 				} else {
