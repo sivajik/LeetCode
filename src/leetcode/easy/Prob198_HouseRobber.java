@@ -7,6 +7,7 @@ public class Prob198_HouseRobber {
 		System.out.println(rob(new int[] { 2, 7, 9, 3, 1 }));
 		System.out.println(rob(new int[] {}));
 		System.out.println(rob(new int[] {0}));
+		
 	}
 
 	static public int rob(int[] nums) {
