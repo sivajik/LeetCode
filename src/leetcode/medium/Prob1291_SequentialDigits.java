@@ -34,11 +34,4 @@ public class Prob1291_SequentialDigits {
 		}
 	}
 
-	private static int getNumber(List<Integer> arr, int startIndex) {
-		int sum = 0;
-		for (int i = 0; i < startIndex; i++) {
-			sum = (sum * 10) + arr.get(i);
-		}
-		return sum;
-	}
 }
