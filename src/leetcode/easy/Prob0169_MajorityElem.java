@@ -3,11 +3,16 @@ package leetcode.easy;
 public class Prob0169_MajorityElem {
 
 	public static void main(String[] args) {
+/*
 		System.out.println(majorityElement(new int[] { 3, 2, 3 }));
 		System.out.println(majorityElement(new int[] { 2, 2, 1, 1, 1, 2, 2 }));
-
 		System.out.println(majorityElement2(new int[] { -1, 1, 1, 1, 2, 1 }));
 		System.out.println(majorityElement(new int[] { -1, 1, 1, 1, 2, 1 }));
+*/		
+		System.out.println(majorityElementBoyerMooreVoting(new int[] { 3, 2, 3 }));
+		System.out.println(majorityElementBoyerMooreVoting(new int[] { 2, 2, 1, 1, 1, 2, 2 }));
+		System.out.println(majorityElementBoyerMooreVoting(new int[] { -1, 1, 1, 1, 2, 1 }));
+		System.out.println(majorityElementBoyerMooreVoting(new int[] { -1, 1, 1, 1, 2, 1 }));
 
 	}
 
@@ -44,5 +49,22 @@ public class Prob0169_MajorityElem {
 			return nums[0];
 		}
 		return -1;
+	}
+	
+	public static int majorityElementBoyerMooreVoting(int[] nums) {
+		int count = 0;
+		Integer candidate = null;
+		for (Integer num : nums) {
+			if (count == 0) {
+				candidate = num;
+			}
+			if (num == candidate) {
+				count++;
+			} else {
+				count--;
+			}
+		}
+		
+		return candidate;
 	}
 }
