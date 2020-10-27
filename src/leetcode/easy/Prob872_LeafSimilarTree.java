@@ -34,6 +34,17 @@ public class Prob872_LeafSimilarTree {
 		}
 	}
 
+	public static void inOrder(TreeNode tree, List<Integer> l) {
+		if (tree != null) {
+			inOrder(tree.left, l);
+			if (tree.left == null && tree.right == null) {
+				l.add(tree.val);
+				System.out.print(tree.val + " ");
+			}
+			inOrder(tree.right, l);
+		}
+	}
+	
 	public static TreeNode prepareTree(int[] values) {
 		TreeNode[] treeArray = new TreeNode[values.length];
 		for (int i = 0; i < values.length; i++) {
@@ -52,17 +63,6 @@ public class Prob872_LeafSimilarTree {
 			}
 		}
 		return treeArray[0];
-	}
-
-	public static void inOrder(TreeNode tree, List<Integer> l) {
-		if (tree != null) {
-			inOrder(tree.left, l);
-			if (tree.left == null && tree.right == null) {
-				l.add(tree.val);
-				System.out.print(tree.val + " ");
-			}
-			inOrder(tree.right, l);
-		}
 	}
 
 	static class TreeNode {
