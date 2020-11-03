@@ -8,7 +8,6 @@ public class Day03_ConsecutiveChars {
 		System.out.println(maxPower("triplepillooooow"));
 		System.out.println(maxPower("hooraaaaaaaaaaay"));
 		System.out.println(maxPower("tourist"));
-
 	}
 
 	public static int maxPower(String s) {
