@@ -6,12 +6,12 @@ import java.util.List;
 public class Prob0113_PathSum2 {
 
 	public static void main(String[] args) {
-		// TreeNode root = prepareTree(new int[] { 5, 4, 8, 11, 0, 13, 4, 7, 2, 0, 0, 0,
-		// 0, 5, 1 });
-		TreeNode root = prepareTree(new int[] { 1, 2, -999 });
+		TreeNode root = prepareTree(new int[] { 5, 4, 8, 11, 0, 13, 4, 7, 2, 0, 0, 0,
+		0, 5, 1 });
+		//TreeNode root = prepareTree(new int[] { 1, 2, -999 });
 		inOrder(root);
 		System.out.println();
-		pathSum(root, 1);
+		pathSum(root, 22);
 		for (List<Integer> eachList : finalList) {
 			System.out.println(eachList);
 		}
