@@ -18,17 +18,22 @@ public class P22_GenerateParanthesis {
 		return res;
 	}
 
-	private static void solve(int roc, int rcc, List<String> res, String op) {
-		if (roc == rcc && roc == 0) {
+	private static void solve(int leftOverOpenBracketCount, int leftOverCloseBracketCount, List<String> res,
+			String op) {
+		// System.out.println(leftOverOpenBracketCount + " , " + leftOverCloseBracketCount);
+		if (leftOverCloseBracketCount == leftOverOpenBracketCount && 0 == leftOverCloseBracketCount) {
 			res.add(op);
 			return;
 		}
 
-		if (roc == 0 && rcc > 0) {
-			solve(roc, rcc - 1, res, op + ")");
-		} else if (roc <= rcc) {
-			solve(roc - 1, rcc, res, op + "(");
-			solve(roc, rcc - 1, res, op + ")");
+		if (leftOverOpenBracketCount == 0 && leftOverCloseBracketCount > 0) {
+			solve(leftOverOpenBracketCount, leftOverCloseBracketCount - 1, res, op + ")");
+		} else if (leftOverOpenBracketCount <= leftOverCloseBracketCount) {
+			solve(leftOverOpenBracketCount - 1, leftOverCloseBracketCount, res, op + "(");
+			solve(leftOverOpenBracketCount, leftOverCloseBracketCount - 1, res, op + ")");
 		}
 	}
+	
+	
+
 }
