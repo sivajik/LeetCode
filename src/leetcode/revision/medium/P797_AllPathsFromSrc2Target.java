@@ -13,11 +13,11 @@ public class P797_AllPathsFromSrc2Target {
 		}
 		System.out.println();
 		
-		java.util.List<java.util.List<Integer>> finalList1 = allPathsSourceTarget(
+		/*java.util.List<java.util.List<Integer>> finalList1 = allPathsSourceTarget(
 				new int[][] { {4,3,1},{3,2,4},{3},{4},{}});
 		for (java.util.List<Integer> l : finalList1) {
 			System.out.println(l);
-		}
+		}*/
 	}
 
 	static public List<List<Integer>> allPathsSourceTarget(int[][] graph) {
@@ -34,18 +34,20 @@ public class P797_AllPathsFromSrc2Target {
 	static private void dfs(int[][] graph, int src, int dest, boolean[] visited, List<List<Integer>> res,
 			List<Integer> tempList) {
 		if (src == dest) {
+			// we reached destination
 			tempList.add(dest);
 			res.add(new ArrayList<>(tempList));
 			return;
 		}
+		
 		visited[src] = true;
 		tempList.add(src);
 		
-		for (int eachAdjVertexOfSrc : graph[src]) {
-			if (visited[eachAdjVertexOfSrc] == false) {
-				dfs(graph, eachAdjVertexOfSrc, dest, visited, res, tempList);
-				visited[eachAdjVertexOfSrc] = false;
-				tempList.remove(tempList.size() - 1);
+		for (int eachAdjVertOfSrc : graph[src]) {
+			if (visited[eachAdjVertOfSrc] == false) {
+				dfs(graph, eachAdjVertOfSrc, dest, visited, res, tempList);
+				visited[eachAdjVertOfSrc] = false;
+				tempList.remove(tempList.size()- 1);
 			}
 		}
 	}
