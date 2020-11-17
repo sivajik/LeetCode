@@ -1,4 +1,4 @@
-package leetcode.revision.medium;
+package leetcode.revision.week01.medium;
 
 import java.util.HashMap;
 import java.util.Map;

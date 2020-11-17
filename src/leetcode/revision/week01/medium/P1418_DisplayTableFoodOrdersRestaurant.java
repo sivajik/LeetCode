@@ -1,4 +1,4 @@
-package leetcode.revision.medium;
+package leetcode.revision.week01.medium;
 
 import java.util.ArrayList;
 import java.util.Comparator;
