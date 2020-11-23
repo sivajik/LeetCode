@@ -115,6 +115,7 @@ class Trie {
 			} else {
 				if (prev == null && tmp.cell[index].isLeaf == true) {
 					prev = tmp.cell[index];
+					return prev.word;
 				}
 				tmp = tmp.cell[index];
 			}
