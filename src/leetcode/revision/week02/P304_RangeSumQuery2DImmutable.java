@@ -1,4 +1,4 @@
-package leetcode.medium;
+package leetcode.revision.week02;
 
 import java.util.Arrays;
 
