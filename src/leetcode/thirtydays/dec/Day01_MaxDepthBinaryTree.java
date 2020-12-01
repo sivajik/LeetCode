@@ -1,6 +1,6 @@
 package leetcode.thirtydays.dec;
 
-public class Day01_MadDepthBinaryTree {
+public class Day01_MaxDepthBinaryTree {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
