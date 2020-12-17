@@ -20,7 +20,39 @@ public class Prob59_SpiralMatrix2 {
 		}
 	}
 
+	
 	static public int[][] generateMatrix(int n) {
+		int[][] op = new int[n][n];
+		for (int i = 0; i < n; i++) {
+			op[i] = new int[n];
+		}
+		
+		int[] rowDir = { 0, 1, 0, -1 };
+		int[] colDir = { 1, 0, -1, 0 };
+
+		int r = 0, c = 0, di = 0;
+		
+		boolean[][] seen = new boolean[n][n];
+		
+		for (int i = 0; i < n*n; i++) {
+			op[r][c] = i+1;
+			seen[r][c] = true;
+			int newR = r + rowDir[di];
+			int newC = c + colDir[di];
+			
+			if (newR <0 || newC < 0 || newR >= n || newC >= n || seen[newR][newC] == true) {
+				di = (di + 1) % 4;
+				r = r + rowDir[di];
+				c = c + colDir[di];
+			} else {
+				r = newR;
+				c = newC;
+			}
+		}
+		return op;
+	}
+	
+	static public int[][] generateMatrixOld(int n) {
 		int[][] ans = new int[n][n];
 		fill(ans, 0, 0, 1, 'r');
 		return ans;
