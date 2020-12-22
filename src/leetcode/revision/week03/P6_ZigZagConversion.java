@@ -3,7 +3,7 @@ package leetcode.revision.week03;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Prob6_ZigZagConversion {
+public class P6_ZigZagConversion {
 
 	public static void main(String[] args) {
 		System.out.println(convert("PAYPALISHIRING", 3));
