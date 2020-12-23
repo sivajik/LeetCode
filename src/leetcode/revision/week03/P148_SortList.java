@@ -81,7 +81,6 @@ public class P148_SortList {
 			curr.next = left;
 		}
 		return head.next;
-
 	}
 
 	private static void link(ListNode n2, ListNode n4) {
