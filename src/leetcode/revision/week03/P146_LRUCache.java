@@ -16,20 +16,18 @@ public class P146_LRUCache {
 		System.out.println(lRUCache.get(1) == -1); // return -1 (not found)
 		System.out.println(lRUCache.get(3) == 3); // return 3
 		System.out.println(lRUCache.get(4) == 4); // return 4
-		
-		
+
 		LRUCache lRUCache1 = new LRUCache(1);
 		lRUCache1.put(2, 1); // cache is {1=1}
 		System.out.println(lRUCache1.get(2) == 1); // return 1
-		
-		
+
 		LRUCache lRUCache2 = new LRUCache(1);
 		lRUCache2.put(2, 1); // cache is {1=1}
-		System.out.println(lRUCache2.get(2) ); // return 1
-		lRUCache2.put(3,2); // cache is {1=1}
-		System.out.println(lRUCache2.get(2) ); // return 1
-		System.out.println(lRUCache2.get(3) ); // return 1
-		
+		System.out.println(lRUCache2.get(2)); // return 1
+		lRUCache2.put(3, 2); // cache is {1=1}
+		System.out.println(lRUCache2.get(2)); // return 1
+		System.out.println(lRUCache2.get(3)); // return 1
+
 		LRUCache lRUCache3 = new LRUCache(2);
 		lRUCache3.put(2, 1);
 		lRUCache3.put(1, 1);
@@ -37,7 +35,7 @@ public class P146_LRUCache {
 		lRUCache3.put(4, 1);
 		System.out.println(-1 == lRUCache3.get(1));
 		System.out.println(3 == lRUCache3.get(2));
-				
+
 	}
 
 }
@@ -74,7 +72,6 @@ class LRUCache {
 		return returnVal;
 	}
 
-	
 	private void moveNodeToHead(DListNode node) {
 		deleteNode(node);
 		moveToHead(node);
@@ -96,7 +93,7 @@ class LRUCache {
 
 		next.prev = prev;
 		prev.next = next;
-		
+
 		node.next = null;
 		node.prev = null;
 	}
