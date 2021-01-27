@@ -19,4 +19,3 @@ public class Prob1680_ConcatenationOfConsecutiveBinaryNumbers {
 		return res;
 	}
 }
-//1 10 11
