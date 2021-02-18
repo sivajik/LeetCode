@@ -3,7 +3,7 @@ package leetcode.medium;
 public class Prob413_ArithmeticSlices {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		System.out.println(numberOfArithmeticSlices(new int[] { 1, 2, 3, 4 }));
 
 	}
 
