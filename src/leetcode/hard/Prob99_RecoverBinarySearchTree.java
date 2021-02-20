@@ -23,19 +23,24 @@ public class Prob99_RecoverBinarySearchTree {
 	}
 
 	private static void helper(TreeNode node) {
-		if (node != null) {
-			helper(node.left);
-
-			if (curr != null && curr.val > node.val) {
-				if (swap[0] == null) {
-					swap[0] = curr;
-				}
-				swap[1] = node;
-			}
-			curr = node;
-
-			helper(node.right);
+		if (node == null) {
+			return;
 		}
+
+		helper(node.left);
+
+		if (curr != null && curr.val > node.val) {
+			// curr.val > node.val => previous node has more than curr node ; violation in
+			// 'inorder' flow as expected to see low to high sort order.
+			if (swap[0] == null) {
+				swap[0] = curr;
+			}
+			swap[1] = node;
+		}
+		curr = node;
+
+		helper(node.right);
+
 	}
 
 	// ======
