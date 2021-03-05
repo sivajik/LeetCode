@@ -3,21 +3,64 @@ package leetcode.easy;
 public class Prob0463_IstlandFinder {
 
 	public static void main(String[] args) {
-		System.out.println(islandPerimeter(new int[][] {
-			{0, 1, 0, 0},
-			{1, 1, 1, 0},
-			{0, 1, 0, 0},
-			{1, 1, 0, 0}	
-		}));
-		
-		System.out.println(islandPerimeter(new int[][] {
-			{1, 1},
-			{1, 1}	
-		}));
+		System.out.println(
+				islandPerimeter(new int[][] { { 0, 1, 0, 0 }, { 1, 1, 1, 0 }, { 0, 1, 0, 0 }, { 1, 1, 0, 0 } }));
+
+		System.out.println(islandPerimeter(new int[][] { { 1, 0 }, { 1, 0 } }));
 
 	}
 
+	static int count = 0;
+
 	public static int islandPerimeter(int[][] grid) {
+		if (grid == null || grid.length == 0 || grid[0] == null || grid[0].length == 0) {
+			return 0;
+		}
+		
+		boolean[][] visited = new boolean[grid.length][grid[0].length];
+		count = 0;
+		for (int i = 0; i < grid.length; i++) {
+			for (int j = 0; j < grid[i].length; j++) {
+				if (grid[i][j] == 1) {
+					BFS(grid, i, j, visited);
+				}
+			}
+		}
+		return count;
+	}
+
+	private static boolean BFS(int[][] grid, int i, int j, boolean[][] visited) {
+		if (i < 0 || j < 0 || i >= grid.length || j >= grid[i].length) {
+			return false;
+		}
+		if (grid[i][j] != 1) {
+			return false;
+		}
+
+		if(visited[i][j] == true) {
+			return true;
+		}
+		
+		visited[i][j] = true;
+		int perimeter = 4;
+
+		if (BFS(grid, i + 1, j, visited)) {
+			perimeter--;
+		}
+		if (BFS(grid, i - 1, j, visited)) {
+			perimeter--;
+		}
+		if (BFS(grid, i , j+1, visited)) {
+			perimeter--;
+		}
+		if (BFS(grid, i , j-1, visited)) {
+			perimeter--;
+		}
+		count += perimeter;
+		return true;
+	}
+
+	public static int islandPerimeter1(int[][] grid) {
 		int sum = 0;
 		for (int i = 0; i < grid.length; i++) {
 			for (int j = 0; j < grid[i].length; j++) {
