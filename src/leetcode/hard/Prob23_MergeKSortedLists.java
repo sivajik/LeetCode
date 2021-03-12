@@ -45,8 +45,8 @@ public class Prob23_MergeKSortedLists {
 			}
 		}
 
-		ListNode finalHead = null;
-		ListNode end = null;
+		ListNode headOfFinalList = null;
+		ListNode endOfFinalList = null;
 
 		while (!q.isEmpty()) {
 			ListNode top = q.peek();
@@ -56,15 +56,15 @@ public class Prob23_MergeKSortedLists {
 				q.add(top.next);
 			}
 
-			if (finalHead == null) {
-				finalHead = topNode;
-				end = topNode;
+			if (headOfFinalList == null) {
+				headOfFinalList = topNode;
+				endOfFinalList = topNode;
 			} else {
-				end.next = topNode;
-				end = end.next;
+				endOfFinalList.next = topNode;
+				endOfFinalList = endOfFinalList.next;
 			}
 		}
-		return finalHead;
+		return headOfFinalList;
 	}
 
 	static void print(ListNode t) {
