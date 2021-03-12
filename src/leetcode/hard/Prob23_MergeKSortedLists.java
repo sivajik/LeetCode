@@ -14,7 +14,11 @@ public class Prob23_MergeKSortedLists {
 		arr[1].next = new ListNode(4);
 		arr[1].next.next = new ListNode(6);
 		arr[1].next.next.next = new ListNode(8);
-
+		arr[1].next.next.next.next = new ListNode(888);
+		arr[1].next.next.next.next.next = new ListNode(8888);
+		arr[1].next.next.next.next.next.next = new ListNode(88888);
+		arr[1].next.next.next.next.next.next.next = new ListNode(888888);
+		
 		arr[2] = new ListNode(0);
 		arr[2].next = new ListNode(9);
 		arr[2].next.next = new ListNode(10);
