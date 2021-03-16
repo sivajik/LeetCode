@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * sooper dooper logic for any k sum 
+ */
 public class Prob18_4Sum {
 
 	public static void main(String[] args) {
