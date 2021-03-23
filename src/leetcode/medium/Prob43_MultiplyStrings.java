@@ -14,6 +14,8 @@ public class Prob43_MultiplyStrings {
 
 	}
 
+	// a better one is here: https://leetcode.com/problems/multiply-strings/discuss/1005658/Simple-multiplication-O(n*m)-or-Java-3ms-or-90-faster
+	
 	static public String multiply(String num1, String num2) {
 		if (num1.equalsIgnoreCase("0") || num2.equalsIgnoreCase("0")) {
 			return "0";
@@ -93,9 +95,8 @@ public class Prob43_MultiplyStrings {
 		long carry = 0;
 		for (char x : new StringBuilder(num1).reverse().toString().toCharArray()) {
 			long temp = carry + ((x - '0') * (c - '0'));
-			long mull = temp % 10;
 			carry = temp / 10;
-			sbr.append(mull);
+			sbr.append(temp % 10);
 		}
 
 		if (carry > 0) {
