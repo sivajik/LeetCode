@@ -21,7 +21,7 @@ public class Prob1466_ReorderRoutesToMakeAllPathsLeadtotheCityZero {
 		}
 
 		int count = 0;
-		// 4
+		// 4 - is only in set
 		while (canReachZeros.size() < n) {
 			for (int i = 0; i < connections.length; i++) {
 				int[] temp = connections[i];
