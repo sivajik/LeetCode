@@ -14,8 +14,11 @@ public class Prob271_EncodeandDecodeStrings {
 		s.add("four");
 
 		Codec c = new Codec();
-		System.out.println(c.decode(c.encode(s)));
+		// System.out.println(c.decode(c.encode(s)));
 		// System.out.println(Character.toString((char) 258));
+		for(String s1 : "abcd:foo:bar:jock:jockey".split(":", -1)) {
+			System.out.println(s1);
+		}
 
 	}
 
