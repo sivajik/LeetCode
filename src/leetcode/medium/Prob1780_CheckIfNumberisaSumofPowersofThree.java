@@ -8,6 +8,22 @@ public class Prob1780_CheckIfNumberisaSumofPowersofThree {
 	}
 
 	static public boolean checkPowersOfThree(int n) {
+		if (n == 0 || n == 1) {
+			return true;
+		}
+
+		int remaining = n % 3;
+		if (remaining == 2) {
+			return false;
+		}
+		if (remaining == 1) {
+			n -= 1;
+		}
+		n = n / 3;
+		return checkPowersOfThree(n);
+	}
+
+	static public boolean checkPowersOfThree1(int n) {
 		int prev = -1;
 		while (n > 0) {
 			int log = (int) Math.floor(Math.log10(n) / Math.log10(3));
