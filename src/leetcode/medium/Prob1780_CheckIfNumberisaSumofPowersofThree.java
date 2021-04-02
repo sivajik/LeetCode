@@ -1,6 +1,6 @@
 package leetcode.medium;
 
-public class PRob1780_CheckIfNumberisaSumofPowersofThree {
+public class Prob1780_CheckIfNumberisaSumofPowersofThree {
 
 	public static void main(String[] args) {
 		System.out.println(checkPowersOfThree(11));
