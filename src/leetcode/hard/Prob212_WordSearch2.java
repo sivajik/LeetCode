@@ -1,135 +1,89 @@
 package leetcode.hard;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Prob212_WordSearch2 {
 
 	public static void main(String[] args) {
-		/*
-		 * List<String> l = findWords(new char[][] { { 'o', 'a', 'a', 'n' }, { 'e', 't',
-		 * 'a', 'e' }, { 'i', 'h', 'k', 'r' }, { 'i', 'f', 'l', 'v' } }, new String[] {
-		 * "oath", "pea", "eat", "rain", "nerv" });
-		 */
-
-		// List<String> l = findWords(new char[][] { { 'a', 'a'} }, new String[] { "aaa"
-		// });
-		List<String> l = findWords(new char[][] { { 'a', 'b' }, { 'a', 'a' } },
-				new String[] { "aba", "baa", "bab", "aaab", "aaa", "aaaa", "aaba" });
-		for (String s : l) {
+		for (String s : findWords(new char[][] { { 'o', 'a', 'a', 'n' }, { 'e', 't', 'a', 'e' }, { 'i', 'h', 'k', 'r' },
+				{ 'i', 'f', 'l', 'v' } }, new String[] { "oath", "pea", "eat", "rain" })) {
 			System.out.println(s);
 		}
-
 	}
 
 	static public List<String> findWords(char[][] board, String[] words) {
-		List<String> result = new ArrayList<>();
-
-		if (board == null || board.length == 0 || board[0].length == 0) {
-			return result;
+		// 1) push all words to Trie.
+		TrieNode root = new TrieNode();
+		for (String word : words) {
+			TrieNode node = root;
+			for (Character letter : word.toCharArray()) {
+				if (node.children.containsKey(letter)) {
+					node = node.children.get(letter);
+				} else {
+					TrieNode newNode = new TrieNode();
+					node.children.put(letter, newNode);
+					node = newNode;
+				}
+			}
+			node.word = word;
 		}
 
-		boolean[][] visited = new boolean[board.length][board[0].length];
-
-		Trie t = new Trie();
-		for (String eachWord : words) {
-			t.insert(eachWord);
-		}
-
+		// 2) process backtrack.
+		ArrayList<String> result = new ArrayList<String>();
 		for (int i = 0; i < board.length; i++) {
 			for (int j = 0; j < board[i].length; j++) {
-				dfs(board, i, j, t, visited, "", result);
-				visited = new boolean[board.length][board[0].length];
+				if (root.children.containsKey(board[i][j])) {
+					backtrack(i, j, root, board, result);
+				}
 			}
 		}
 		return result;
 	}
 
-	static private void dfs(char[][] board, int i, int j, Trie t, /* String word, */ boolean[][] visited,
-			String startStr, List<String> result) {
-		if (i < 0 || j < 0 || i >= board.length || j >= board[i].length || visited[i][j] == true) {
-			return;
+	private static void backtrack(int i, int j, TrieNode parentNode, char[][] board, ArrayList<String> result) {
+		Character letter = board[i][j];
+		TrieNode currNode = parentNode.children.get(letter);
+
+		if (currNode.word != null) {
+			result.add(currNode.word);
+			currNode.word = null;
 		}
 
-		visited[i][j] = true;
+		board[i][j] = '£';
 
-		startStr = startStr + board[i][j];
+		int[] rowOffset = { -1, 0, 1, 0 };
+		int[] colOffset = { 0, 1, 0, -1 };
+		for (int x = 0; x < 4; x++) {
+			int newRow = i + rowOffset[x];
+			int newCol = j + colOffset[x];
 
-		if (t.find(startStr)) {
-			if (!result.contains(startStr)) {
-				result.add(startStr);
+			if (newRow < 0 || newRow >= board.length || newCol < 0 || newCol >= board[0].length) {
+				continue;
+			}
+			if (currNode.children.containsKey(board[newRow][newCol])) {
+				backtrack(newRow, newCol, currNode, board, result);
 			}
 		}
 
-		if (!t.startsWith(startStr)) {
-			visited[i][j] = false;
-			return;
+		board[i][j] = letter;
+		// only needed for 25 to 75% optimisation
+/*
+		if (currNode.children.isEmpty()) {
+			parentNode.children.remove(letter);
 		}
-
-		dfs(board, i + 1, j, t, visited, startStr, result);
-		dfs(board, i - 1, j, t, visited, startStr, result);
-		dfs(board, i, j + 1, t, visited, startStr, result);
-		dfs(board, i, j - 1, t, visited, startStr, result);
-
-		visited[i][j] = false;
+*/
+		
 	}
 
-}
+	static class TrieNode {
+		String word = null;
+		Map<Character, TrieNode> children = new HashMap<>();
 
-class TrieNode {
-	TrieNode[] children;
-	boolean isLeafNode;
+		public TrieNode() {
 
-	TrieNode() {
-		this.children = new TrieNode[26];
-		this.isLeafNode = false;
-	}
-}
-
-class Trie {
-	TrieNode root;
-
-	Trie() {
-		this.root = new TrieNode();
-	}
-
-	public void insert(String word) {
-		TrieNode temp = root;
-
-		for (char c : word.toCharArray()) {
-			int index = c - 'a';
-			if (temp.children[index] == null) {
-				TrieNode x = new TrieNode();
-				temp.children[index] = x;
-				temp = temp.children[index];
-			} else {
-				temp = temp.children[index];
-			}
 		}
-		temp.isLeafNode = true;
-	}
-
-	public boolean find(String word) {
-		TrieNode temp = getNode(word);
-		return temp != null && temp.isLeafNode == true;
-	}
-
-	public boolean startsWith(String word) {
-		TrieNode temp = getNode(word);
-		return temp != null && temp.isLeafNode == false;
-	}
-
-	private TrieNode getNode(String word) {
-		TrieNode temp = root;
-
-		for (char c : word.toCharArray()) {
-			int index = c - 'a';
-			if (temp.children[index] == null) {
-				return null;
-			} else {
-				temp = temp.children[index];
-			}
-		}
-		return temp;
 	}
 }
