@@ -28,7 +28,7 @@ public class Prob68_TextJustification {
 				lineLength = wordLen;
 				workingList.add(word);
 				i++;
-			} else if (wordLen + lineLength + 1 <= maxWidth) {
+			} else if (wordLen + lineLength + 1 <= maxWidth) { // did not add space after 1st word, so +1
 				lineLength += wordLen + 1; // +1 is mainly for a space.
 				workingList.add(word);
 				i++;
