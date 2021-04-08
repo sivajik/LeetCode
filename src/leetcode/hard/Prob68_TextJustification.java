@@ -6,8 +6,8 @@ import java.util.List;
 public class Prob68_TextJustification {
 
 	public static void main(String[] args) {
-		for (String s : fullJustify(new String[] { "This", "is", "an", "example", "of", "text", "justification." },
-				16)) {
+		for (String s : fullJustify(new String[] { "This", "is", "a", "greatest" /*, "example", "of", "text", "justification."*/ },
+				10)) {
 			System.out.println(s);
 		}
 
