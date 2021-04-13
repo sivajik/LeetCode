@@ -10,6 +10,9 @@ public class Prob140_WordBreak2 {
 	public static void main(String[] a) {
 		System.out
 				.println(wordBreak("catsanddog", Arrays.asList(new String[] { "cat", "cats", "and", "sand", "dog" })));
+		System.out.println(wordBreak("pineapplepenapple",
+				Arrays.asList(new String[] { "apple", "pen", "applepen", "pine", "pineapple" })));
+		System.out.println(wordBreak("catsandog", Arrays.asList(new String[] { "cats", "dog", "sand", "and", "cat" })));
 	}
 
 	static final Map<String, List<String>> cache = new HashMap<>();
@@ -26,7 +29,7 @@ public class Prob140_WordBreak2 {
 		for (int i = 1; i < s.length(); i++) {
 			String left = s.substring(0, i);
 			String right = s.substring(i);
-			if (wordDict.contains(left) ) { //&& containsSuffix(wordDict, right)) {
+			if (wordDict.contains(left)) { // && containsSuffix(wordDict, right)) {
 				for (String ss : wordBreak(right, wordDict)) {
 					result.add(left + " " + ss);
 				}
@@ -35,14 +38,9 @@ public class Prob140_WordBreak2 {
 		cache.put(s, result);
 		return result;
 	}
-/*
-	private static boolean containsSuffix(List<String> wordDict, String s) {
-		for (int i = 0; i < s.length(); i++) {
-			if (wordDict.contains(s.substring(i))) {
-				return true;
-			}
-		}
-		return false;
-	}
-*/	
+	/*
+	 * private static boolean containsSuffix(List<String> wordDict, String s) { for
+	 * (int i = 0; i < s.length(); i++) { if (wordDict.contains(s.substring(i))) {
+	 * return true; } } return false; }
+	 */
 }
