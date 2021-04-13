@@ -29,7 +29,7 @@ public class Prob140_WordBreak2 {
 		for (int i = 1; i < s.length(); i++) {
 			String left = s.substring(0, i);
 			String right = s.substring(i);
-			if (wordDict.contains(left)) { // && containsSuffix(wordDict, right)) {
+			if (wordDict.contains(left) /*&& containsSuffix(wordDict, right)*/ ) {
 				for (String ss : wordBreak(right, wordDict)) {
 					result.add(left + " " + ss);
 				}
@@ -38,9 +38,14 @@ public class Prob140_WordBreak2 {
 		cache.put(s, result);
 		return result;
 	}
-	/*
-	 * private static boolean containsSuffix(List<String> wordDict, String s) { for
-	 * (int i = 0; i < s.length(); i++) { if (wordDict.contains(s.substring(i))) {
-	 * return true; } } return false; }
-	 */
+/*
+	private static boolean containsSuffix(List<String> wordDict, String s) {
+		for (int i = 0; i < s.length(); i++) {
+			if (wordDict.contains(s.substring(i))) {
+				return true;
+			}
+		}
+		return false;
+	}
+*/
 }
