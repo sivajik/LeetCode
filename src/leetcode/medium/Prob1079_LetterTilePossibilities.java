@@ -8,7 +8,7 @@ public class Prob1079_LetterTilePossibilities {
 
 	public static void main(String[] args) {
 		System.out.println(numTilePossibilities("AAB"));
-		System.out.println(numTilePossibilities("AAABBC"));
+		// System.out.println(numTilePossibilities("AAABBC"));
 	}
 
 	static int count = 0;
@@ -25,6 +25,7 @@ public class Prob1079_LetterTilePossibilities {
 		int[] bits = new int[tokens.length];
 
 		solve(tokens, bits);
+		// solve1(tokens, bits, 0);
 		return count;
 	}
 
