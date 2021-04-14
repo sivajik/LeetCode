@@ -14,7 +14,7 @@ public class Prob1249_MinimumRemoveToMakeParentheses {
 	}
 
 	static public String minRemoveToMakeValid(String s) {
-		List<Integer> list2rem = new ArrayList<>();
+		List<Integer> listOfIndices2Remove = new ArrayList<>();
 
 		Stack<Integer> st = new Stack<>();
 		for (int i = 0; i < s.length(); i++) {
@@ -22,7 +22,7 @@ public class Prob1249_MinimumRemoveToMakeParentheses {
 				st.push(i);
 			} else if (s.charAt(i) == ')') {
 				if (st.isEmpty()) {
-					list2rem.add(i);
+					listOfIndices2Remove.add(i);
 				} else {
 					st.pop();
 				}
@@ -30,11 +30,11 @@ public class Prob1249_MinimumRemoveToMakeParentheses {
 		}
 
 		while (!st.isEmpty()) {
-			list2rem.add(st.pop());
+			listOfIndices2Remove.add(st.pop());
 		}
 		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < s.length(); i++) {
-			if (!list2rem.contains(i)) {
+			if (!listOfIndices2Remove.contains(i)) {
 				sb.append(s.charAt(i));
 			}
 		}
