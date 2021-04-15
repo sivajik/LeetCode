@@ -15,6 +15,18 @@ public class Prob1344_AngleBetweenHandsofClock {
 	}
 
 	static public double angleClock(int hour, int minutes) {
+		double eachMinAngle = 360.0 / 60; // we got 60 mins for 360 degrees
+		double hourAngle = 360.0 / 12; // we got 12 hrs for 360 degress
+
+		double minAngle = minutes * eachMinAngle;
+		double hrsAngle = (hour % 12 + minutes / 60.0) * hourAngle;
+
+		double diff = Math.abs(hrsAngle - minAngle);
+		return Math.min(diff, 360 - diff);
+
+	}
+
+	static public double angleClock1(int hour, int minutes) {
 		if (hour == 12) {
 			hour = 0;
 		}
