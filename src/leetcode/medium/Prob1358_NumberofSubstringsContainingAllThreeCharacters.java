@@ -3,7 +3,7 @@ package leetcode.medium;
 public class Prob1358_NumberofSubstringsContainingAllThreeCharacters {
 
 	public static void main(String[] args) {
-		System.out.println(numberOfSubstrings("abcabc"));
+		System.out.println(numberOfSubstrings("abca"));
 
 	}
 
