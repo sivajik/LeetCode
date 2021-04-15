@@ -13,6 +13,9 @@ public class Prob286_WallsAndGates {
 			for (int j = 0; j < n; j++) {
 				if (rooms[i][j] == 0) {
 					// a gate. then set distance to nearest cells.
+					// readon for running dfs here itself is, gate cant be touched. only adjacent to
+					// gates are touched. we never know around gate which cell is a empty one so
+					// do all 4 directions.
 					dfs(rooms, i + 1, j, 1);
 					dfs(rooms, i - 1, j, 1);
 					dfs(rooms, i, j + 1, 1);
