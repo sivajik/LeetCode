@@ -1,6 +1,9 @@
 package leetcode.revision.week04;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Stack;
 
 public class P145_PostOrderTraversal {
 
@@ -30,9 +33,9 @@ public class P145_PostOrderTraversal {
 				s.push(temp.right);
 			}
 		}
-		List<Integer> re = new ArrayList<>();
+		LinkedList<Integer> re = new LinkedList<>();
 		while (!t.isEmpty()) {
-			re.add(t.pop().val);
+			re.addFirst(t.pop().val);
 		}
 		
 		return re;
