@@ -1,6 +1,11 @@
 package leetcode.revision.week01;
 
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Queue;
 
 public class P863_AllNodesDistanceKInBinaryTree {
 
@@ -67,9 +72,11 @@ public class P863_AllNodesDistanceKInBinaryTree {
 					q.add(tmp.right);
 					visited.add(tmp.right);
 				}
-				if (parentsMap.get(tmp) != null && !visited.contains(parentsMap.get(tmp))) {
-					q.add(parentsMap.get(tmp));
-					visited.add(parentsMap.get(tmp));
+				TreeNode prnt = parentsMap.get(tmp);
+				
+				if (prnt != null && !visited.contains(prnt)) {
+					q.add(prnt);
+					visited.add(prnt);
 				}
 			}
 			distance++;
