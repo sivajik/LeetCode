@@ -1,22 +1,66 @@
 package leetcode.medium;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Prob43_MultiplyStrings {
 
 	public static void main(String[] args) {
-		// System.out.println(mul("123", '6'));
-		// System.out.println(multiply("123", "456"));
+		// System.out.println(multiply("123", "6"));
+		System.out.println(multiply("123", "456"));
 		// System.out.println(multiply("2", "3"));
 		// System.out.println(multiply("123456789", "987654321"));
-		System.out.println(multiply("3866762897776739956", "15975363164662"));
+		// System.out.println(multiply("3866762897776739956", "15975363164662"));
 
 	}
 
-	// a better one is here: https://leetcode.com/problems/multiply-strings/discuss/1005658/Simple-multiplication-O(n*m)-or-Java-3ms-or-90-faster
-	
-	static public String multiply(String num1, String num2) {
+	// a better one is here:
+	// https://leetcode.com/problems/multiply-strings/discuss/1005658/Simple-multiplication-O(n*m)-or-Java-3ms-or-90-faster
+
+	static public String multiply(String s, String t) {
+		if (s == null || t == null) {
+			return null;
+		}
+
+		if (s.equalsIgnoreCase("0") || t.equalsIgnoreCase("0")) {
+			return "0";
+		}
+
+		int n = s.length();
+		int m = t.length();
+		int[] res = new int[m + n]; // 12 X 6
+		for (int i = m - 1; i >= 0; i--) {
+			int a = t.charAt(i) - '0';
+			for (int j = n - 1; j >= 0; j--) {
+				int b = s.charAt(j) - '0';
+				int multiple = a * b;
+				
+				int pos1 = i+j+1;
+				int pos2 = i+j;
+				
+				res[pos1] += multiple % 10;
+				res[pos2] += multiple / 10;
+			}
+		}
+		System.out.println(Arrays.toString(res));
+		StringBuilder builder = new StringBuilder();
+        int carry = 0;
+        for(int i=res.length-1 ; i>=0 ; i--) {
+
+            int value = res[i] + carry;
+            carry = value / 10;
+            res[i] = value % 10;
+
+            if(i > 0 || res[i] != 0)
+                builder.append(res[i]);
+        }
+        
+        return builder.reverse().toString();
+
+	}
+
+	static public String multiply1(String num1, String num2) {
 		if (num1.equalsIgnoreCase("0") || num2.equalsIgnoreCase("0")) {
 			return "0";
 		}
