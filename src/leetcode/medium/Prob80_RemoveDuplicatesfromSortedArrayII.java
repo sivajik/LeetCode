@@ -1,9 +1,11 @@
 package leetcode.medium;
 
+import java.util.Arrays;
+
 public class Prob80_RemoveDuplicatesfromSortedArrayII {
 
 	public static void main(String[] args) {
-		System.out.println(removeDuplicates(new int[] { 1, 1, 1, 2, 2, 3 }));
+		System.out.println(removeDuplicates(new int[] { 1, 1, 1, 1, 1, 2, 2, 3 }));
 
 	}
 
@@ -19,6 +21,7 @@ public class Prob80_RemoveDuplicatesfromSortedArrayII {
 				j++;
 			}
 		}
+		System.out.println(Arrays.toString(nums));
 		return j;
 	}
 }
