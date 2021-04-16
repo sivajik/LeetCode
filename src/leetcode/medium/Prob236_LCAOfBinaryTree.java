@@ -15,19 +15,19 @@ public class Prob236_LCAOfBinaryTree {
 		return helper(root, p, q);
 	}
 
-	private static TreeNode helper(TreeNode root, TreeNode p, TreeNode q) {
-		if (root == null) {
+	private static TreeNode helper(TreeNode currNode, TreeNode p, TreeNode q) {
+		if (currNode == null) {
 			return null;
 		}
 
-		if (root.val == p.val || root.val == q.val) {
-			return root;
+		if (currNode.val == p.val || currNode.val == q.val) {
+			return currNode;
 		}
-		TreeNode le = helper(root.left, p, q);
-		TreeNode ri = helper(root.right, p, q);
+		TreeNode le = helper(currNode.left, p, q);
+		TreeNode ri = helper(currNode.right, p, q);
 
 		if (le != null && ri != null) {
-			return root;
+			return currNode;
 		}
 
 		if (le != null) {
