@@ -1,12 +1,13 @@
 package leetcode.medium;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 
 public class Prob934_ShortestBridge {
 
 	public static void main(String[] args) {
-		System.out.println(shortestBridge(new int[][] { { 0, 1 }, { 1, 0 } }));
+		System.out.println(shortestBridge(new int[][] { { 0, 1, 0 }, { 0, 0, 0 }, { 0, 0, 1 } }));
 
 	}
 
@@ -29,6 +30,7 @@ public class Prob934_ShortestBridge {
 		int[][] dirs = new int[][] { { 0, 1 }, { 0, -1 }, { 1, 0 }, { -1, 0 } };
 		while (!q.isEmpty()) {
 			int[] curr = q.poll();
+			System.out.println(Arrays.toString(curr));
 			for (int[] eachDir : dirs) {
 				int i = curr[0] + eachDir[0];
 				int j = curr[1] + eachDir[1];
