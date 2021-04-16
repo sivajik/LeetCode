@@ -5,7 +5,7 @@ import java.util.Stack;
 public class Prob71_SimplifyPath {
 
 	public static void main(String[] args) {
-		System.out.println(simplifyPath("/home/../aggu"));
+		System.out.println(simplifyPath("/home/../aggu/efgh"));
 
 	}
 
