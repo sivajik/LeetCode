@@ -3,7 +3,8 @@ package leetcode.hard;
 public class Prob564_FindtheClosestPalindrome {
 
 	public static void main(String[] args) {
-		System.out.println(nearestPalindromic("1001"));
+		// System.out.println(nearestPalindromic("1001"));
+		System.out.println(nearestPalindromic("921"));
 	}
 
 	static public String nearestPalindromic(String n) {
