@@ -9,8 +9,17 @@ public class Prob137_SingleNumber2 {
 	}
 
 	static public int singleNumber(int[] nums) {
+		int seenOnce = 0, seenTwice = 0;
+		for (int n : nums) {
+			seenOnce = ~seenTwice & (seenOnce ^ n);
+			seenTwice = ~seenOnce & (seenTwice ^ n);
+		}
+		return seenOnce;
+	}
+
+	static public int singleNumber1(int[] nums) {
 		int ans = 0, numOf1sAtPositionI = 0, p = 1;
-		
+
 		for (int i = 0; i < 32; i++) {
 			numOf1sAtPositionI = 0;
 
