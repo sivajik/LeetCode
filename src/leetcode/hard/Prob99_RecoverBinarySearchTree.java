@@ -11,7 +11,7 @@ public class Prob99_RecoverBinarySearchTree {
 	}
 
 	static TreeNode[] swap = new TreeNode[2];
-	static TreeNode curr = null;
+	static TreeNode prevNode = null;
 
 	static public void recoverTree(TreeNode root) {
 		helper(root);
@@ -29,15 +29,15 @@ public class Prob99_RecoverBinarySearchTree {
 
 		helper(node.left);
 
-		if (curr != null && curr.val > node.val) {
+		if (prevNode != null && prevNode.val > node.val) {
 			// curr.val > node.val => previous node has more than curr node ; violation in
 			// 'inorder' flow as expected to see low to high sort order.
 			if (swap[0] == null) {
-				swap[0] = curr;
+				swap[0] = prevNode;
 			}
 			swap[1] = node;
 		}
-		curr = node;
+		prevNode = node;
 
 		helper(node.right);
 
