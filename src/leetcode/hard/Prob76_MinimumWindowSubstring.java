@@ -8,6 +8,12 @@ public class Prob76_MinimumWindowSubstring {
 	}
 	
 	// https://leetcode.com/problems/minimum-window-substring/discuss/1101326/succinct-code-so-that-you-can-code-it-in-minutes-(for-similar-problems-as-well).
+	// Add all the characters of the to be found string in a map.
+	// loop through the main string and decrement the map at respective index.
+	// maintain a count of the to be found string also once it reaches zero start a while loop
+	// keep going until it is zero.
+	// calculate the length, change min if it is smaller, and increment the firstpointer, the value at that index and the counter.
+	
 	static public String minWindow(String s, String t) {
 		int[] indexes = new int[128];
 		for (char c : t.toCharArray()) {
