@@ -12,13 +12,15 @@ public class Prob41_FirstMissingPositive {
 		int curr = 0;
 		while (curr < nums.length) {
 			int index = nums[curr] - 1;
+			// exclude negative numbers
+			// swap only if current number is NOT in its 'supposed to be right' place
 			if (nums[curr] > 0 && index < nums.length && nums[curr] != nums[index]) {
 				swap(nums, curr, index);
 			} else {
 				curr++;
 			}
 		}
-
+		// if i-th number is not in i-th index (ofcourse 1-based)
 		for (curr = 0; curr < nums.length; curr++) {
 			if (nums[curr] != curr + 1) {
 				return curr + 1;
