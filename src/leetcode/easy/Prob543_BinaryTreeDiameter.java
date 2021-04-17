@@ -1,6 +1,5 @@
 package leetcode.easy;
 
-
 public class Prob543_BinaryTreeDiameter {
 
 	public static void main(String[] args) {
@@ -36,11 +35,8 @@ public class Prob543_BinaryTreeDiameter {
 		if (root == null) {
 			return 0;
 		}
-		int lH = height(root.left);
-		int rH = height(root.right);
-
-		return -1+Math.max(height(root.left) + height(root.right) + 1,
-				Math.max(diameterOfBinaryTree(root.left), diameterOfBinaryTree(root.right))+1);
+		return -1 + Math.max(height(root.left) + height(root.right) + 1,
+				Math.max(diameterOfBinaryTree(root.left), diameterOfBinaryTree(root.right)) + 1);
 	}
 
 	public static int height(TreeNode root) {
