@@ -11,8 +11,12 @@ public class Prob1780_CheckIfNumberisaSumofPowersofThree {
 		if (n == 0 || n == 1) {
 			return true;
 		}
-
+		// any number with %3 have 3 options: 0, 1, 2
+		// if 0 -> yeah we can represent
+		// if 1 -> yeah 3 to the power or zero
+		// if 2 -> no wa hose.
 		int remaining = n % 3;
+
 		if (remaining == 2) {
 			return false;
 		}
