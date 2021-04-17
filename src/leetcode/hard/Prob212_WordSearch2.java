@@ -68,7 +68,8 @@ public class Prob212_WordSearch2 {
 			}
 		}
 
-		board[i][j] = letter;
+		board[i][j] = letter; // very imporatnt to keep it back as it was.
+		
 		// only needed for 25 to 75% optimisation
 /*
 		if (currNode.children.isEmpty()) {
