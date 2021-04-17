@@ -36,7 +36,7 @@ public class Prob490_TheMaze {
 			int[] y = new int[] { 0, 0, 1, -1 };
 			for (int i = 0; i < 4; i++) {
 				int[] nextPos = new int[] { curr[0] + x[i], curr[1] + y[i] };
-				
+
 				/**
 				 * REMEMBER WHILE LOOP HERE
 				 */
@@ -44,7 +44,8 @@ public class Prob490_TheMaze {
 					// let ball rolling as long as you can go.
 					nextPos = new int[] { nextPos[0] + x[i], nextPos[1] + y[i] };
 				}
-				// you are here means either you hit a wall.
+				// you are here means either you 'ALREADY' hit a wall and in a
+				// cell which is a wall cell (1)
 				// now check if it is a good spot to consider?
 				// for that you need to come back one step.
 				if (visited[nextPos[0] - x[i]][nextPos[1] - y[i]] == false) {
