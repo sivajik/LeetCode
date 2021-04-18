@@ -27,7 +27,7 @@ class RandomizedSet {
 
 	/** Initialize your data structure here. */
 	public RandomizedSet() {
-		this.map = new java.util.HashMap<>();
+		this.map = new java.util.HashMap<>(); // value to index.
 		this.list = new java.util.ArrayList<>();
 		this.rand = new java.util.Random();
 	}
