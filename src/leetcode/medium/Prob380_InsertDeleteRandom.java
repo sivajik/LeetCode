@@ -55,11 +55,16 @@ class RandomizedSet {
 		}
 
         int index = map.get(val);
+        // get the last element and set it at the palce where element we are deleting
+        // and update map as well with respecive index.
         int lastElement = list.get(list.size() - 1);
         list.set(index, lastElement);
         map.put(lastElement, index);
+        
+        //now remove from list and map too. Obviously delete the last cell.
         list.remove(list.size() - 1);
         map.remove(val);
+        
 		return true;
 	}
 
