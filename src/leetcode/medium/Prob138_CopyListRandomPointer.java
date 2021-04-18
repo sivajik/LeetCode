@@ -27,28 +27,28 @@ public class Prob138_CopyListRandomPointer {
 	static public Node copyRandomList(Node head) {
 		java.util.Map<Node, Node> oldListToNewList = new java.util.HashMap<>();
 
-		Node oldTemp = head;
+		Node oldNode = head;
 		Node doops = new Node(-999);
 		Node newList = doops;
-		while (oldTemp != null) {
-			Node newNode = new Node(oldTemp.val);
+		while (oldNode != null) {
+			Node newNode = new Node(oldNode.val);
 			newList.next = newNode;
 			newList = newList.next;
-			oldListToNewList.put(oldTemp, newNode);
-			oldTemp = oldTemp.next;
+			oldListToNewList.put(oldNode, newNode);
+			oldNode = oldNode.next;
 		}
 
-		oldTemp = head;
+		oldNode = head;
 		newList = doops.next;
-		while (oldTemp != null) {
-			Node randomPointer = oldTemp.random;
+		while (oldNode != null) {
+			Node randomPointer = oldNode.random;
 			if (randomPointer != null) {
 				Node oldNodeMappedTo = oldListToNewList.get(randomPointer);
 				newList.random = oldNodeMappedTo;
 			} else {
 				newList.random = null;
 			}
-			oldTemp = oldTemp.next;
+			oldNode = oldNode.next;
 			newList = newList.next;
 		}
 
