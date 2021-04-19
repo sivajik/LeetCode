@@ -12,23 +12,28 @@ public class Prob1235_MaximumProfitinJobScheduling {
 	}
 
 	static public int jobScheduling(int[] startTime, int[] endTime, int[] profit) {
-
 		int n = startTime.length;
-		int[][] jobs = new int[n][];
+		int[][] jobs = new int[n][3];
 		for (int i = 0; i < n; i++) {
 			jobs[i] = new int[] { startTime[i], endTime[i], profit[i] };
 		}
 		Arrays.sort(jobs, (a, b) -> a[1] - b[1]);
-		TreeMap<Integer, Integer> dp = new TreeMap<>();
-		dp.put(0, 0);
-		int res = 0;
+
+		for (int[] j : jobs) {
+			System.out.println(Arrays.toString(j));
+		}
+		
+		TreeMap<Integer, Integer> map = new TreeMap<>();
+		map.put(0, 0);
+		int maxProft = 0;
 		for (int[] job : jobs) {
-			int cur = dp.floorEntry(job[0]).getValue() + job[2];
-			if (cur > res) {
-				dp.put(job[1], res = cur);
+			int currProfit = map.floorEntry(job[0]).getValue() + job[2];
+			if (currProfit > maxProft) {
+				map.put(job[1], currProfit);
+				maxProft = currProfit;
 			}
 		}
-		return res;
+		return maxProft;
 
 	}
 }
