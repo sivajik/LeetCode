@@ -19,6 +19,7 @@ public class Prob139_WordBreak {
 		dp[0] = true;
 
 		for (int len = 1; len <= n; len++) {
+			System.out.println("Len: " + len);
 			for (int i = 0; i < len; i++) {
 				String temp = s.substring(i, len);
 				System.out.println("Checking : " + temp);
