@@ -21,7 +21,7 @@ public class Prob428_SerializeandDeserializeNaryTree {
 			return sbr.toString();
 		}
 
-		// 1 [ 3 [ 5 6 ] 2 4
+		// 1 [ 3 [ 5 6 ] 2 4 ] ]
 		private void serailHelper(Node root, StringBuilder sbr) {
 			if (root == null) {
 				return;
@@ -36,7 +36,7 @@ public class Prob428_SerializeandDeserializeNaryTree {
 			}
 		}
 
-		// 1 [ 3 [ 5 6 ] 2 4
+		// 1 [ 3 [ 5 6 ] 2 4 ] ]
 		public Node deserialize(String data) {
 			if (data == null || data.length() == 0) {
 				return null;
