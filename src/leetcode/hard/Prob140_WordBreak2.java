@@ -36,6 +36,7 @@ public class Prob140_WordBreak2 {
 			}
 		}
 		cache.put(s, result);
+		System.out.println(cache);
 		return result;
 	}
 /*
