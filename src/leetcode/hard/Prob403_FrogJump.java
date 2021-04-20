@@ -28,6 +28,7 @@ public class Prob403_FrogJump {
 				}
 			}
 		}
+		System.out.println(map);
 		return map.get(stones[stones.length - 1]).size() > 0;
 
 	}
