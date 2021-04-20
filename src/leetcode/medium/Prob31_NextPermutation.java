@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class Prob31_NextPermutation {
 
 	public static void main(String[] args) {
-		int[] a = new int[] { 1, 2, 3 };
+		int[] a = new int[] { 8,7,9,5 };
 		nextPermutation(a);
 		System.out.println(Arrays.toString(a));
 	}
