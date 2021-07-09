@@ -14,7 +14,9 @@ public class Day09_LIS {
 
 		for (int i = 0; i < nums.length; i++) {
 			for (int j = 0; j < i; j++) {
-				if (nums[i] > nums[j]) {
+				// the recurrence relation is: dp[i] = max(dp[j] + 1) for all j where nums[j] < nums[i] and j < i.
+				// or keep res[i] as it is.
+				if (nums[j] < nums[i]) {
 					res[i] = Math.max(res[i], 1 + res[j]);
 				}
 			}
