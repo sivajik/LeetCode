@@ -16,7 +16,6 @@ public class Day02_PossibleBSTs {
 		if (n == 0) {
 			return new ArrayList<TreeNode>();
 		}
-
 		return generate(1, n);
 	}
 
