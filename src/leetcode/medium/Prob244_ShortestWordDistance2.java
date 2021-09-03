@@ -8,6 +8,7 @@ public class Prob244_ShortestWordDistance2 {
 		System.out.println(obj.shortest("makes", "coding"));
 	}
 
+	
 	static class WordDistance {
 		String[] words = null;
 

@@ -3,7 +3,7 @@ package leetcode.hard;
 public class Prob44_WildcardMatching {
 
 	public static void main(String[] args) {
-		System.out.println(isMatch("abcd", "ab?d"));
+		System.out.println(isMatch("abbbd", "a*d"));
 	}
 
 	static public boolean isMatch(String s, String p) {

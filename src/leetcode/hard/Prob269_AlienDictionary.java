@@ -8,10 +8,10 @@ import java.util.Map;
 public class Prob269_AlienDictionary {
 
 	public static void main(String[] args) {
-	/*	System.out.println(alienOrder(new String[] { "wrt", "wrf", "er", "ett", "rftt" }));
-		System.out.println(alienOrder(new String[] { "z", "x" }));
+		System.out.println(alienOrder(new String[] { "wrt", "wrf", "er", "ett", "rftt" }));
+		/*	System.out.println(alienOrder(new String[] { "z", "x" }));
 		System.out.println(alienOrder(new String[] { "z", "x", "z" }));
-	*/	System.out.println(alienOrder(new String[] { "ac", "ab", "zc", "zb" }));
+		System.out.println(alienOrder(new String[] { "ac", "ab", "zc", "zb" }));*/
 	}
 
 	public static String alienOrder(String[] words) {

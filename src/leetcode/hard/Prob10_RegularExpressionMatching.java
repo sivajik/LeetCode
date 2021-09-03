@@ -3,9 +3,9 @@ package leetcode.hard;
 public class Prob10_RegularExpressionMatching {
 
 	public static void main(String[] args) {
-		System.out.println(isMatch("aa", "a") == false);
-		System.out.println(isMatch("aa", "a*") == true);
-		System.out.println(isMatch("ab", ".*") == true);
+		//System.out.println(isMatch("aa", "a") == false);
+		//System.out.println(isMatch("aa", "a*") == true);
+		//System.out.println(isMatch("ab", ".*") == true);
 		System.out.println(isMatch("aab", "c*a*b") == true);
 		System.out.println(isMatch("mississippi", "mis*is*p*.") == false);
 		System.out.println(isMatch("ab", ".*c") == false);

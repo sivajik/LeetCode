@@ -5,6 +5,7 @@ import java.util.Stack;
 public class Prob227_BasicCalculatorII {
 
 	public static void main(String[] args) {
+		System.out.println(calculate("8-3"));
 		System.out.println(calculate("22-3*5"));
 		System.out.println(calculate("3/2"));
 	}

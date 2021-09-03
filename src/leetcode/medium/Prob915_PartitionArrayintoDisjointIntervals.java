@@ -24,6 +24,7 @@ public class Prob915_PartitionArrayintoDisjointIntervals {
 		System.out.println(Arrays.toString(minRight));
 
 		for (int i = 1; i < A.length; i++) {
+			System.out.println(maxLeft[i - 1] + "<=" + minRight[i]);
 			if (maxLeft[i - 1] <= minRight[i]) {
 				return i;
 			}

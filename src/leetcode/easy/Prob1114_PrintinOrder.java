@@ -12,7 +12,7 @@ public class Prob1114_PrintinOrder {
 	static class Foo {
 
 		AtomicInteger firstOne = new AtomicInteger(0);
-		AtomicInteger secondOne = new AtomicInteger(1);
+		AtomicInteger secondOne = new AtomicInteger(0);
 
 		public Foo() {
 

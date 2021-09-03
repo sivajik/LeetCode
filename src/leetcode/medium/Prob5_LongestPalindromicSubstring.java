@@ -3,7 +3,7 @@ package leetcode.medium;
 public class Prob5_LongestPalindromicSubstring {
 
 	public static void main(String[] args) {
-		System.out.println(longestPalindrome("abacdfgdcaba"));
+		System.out.println(longestPalindrome("racecar"));
 	}
 
 	public static String longestPalindrome(String s) {

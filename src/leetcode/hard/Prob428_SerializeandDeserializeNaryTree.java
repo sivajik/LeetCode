@@ -7,7 +7,9 @@ import java.util.Stack;
 public class Prob428_SerializeandDeserializeNaryTree {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		String s = "1 [ 3 [ 5 6 ] 2 4 ] ]";
+		Codec c = new Codec();
+		c.deserialize(s);
 
 	}
 

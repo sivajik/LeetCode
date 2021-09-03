@@ -18,7 +18,7 @@ public class Prob1647_MinDelToMakeCharacterFreqUnique {
 		Set<Integer> set = new HashSet<>();
 		int del = 0;
 		for (int i = 0; i < freq.length; i++) {
-			if (freq[i] != 0 && set.contains(freq[i])) {
+			while (freq[i] != 0 && set.contains(freq[i])) {
 				freq[i]--;
 				del++;
 			}

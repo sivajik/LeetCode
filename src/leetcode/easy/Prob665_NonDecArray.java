@@ -3,6 +3,7 @@ package leetcode.easy;
 public class Prob665_NonDecArray {
 
 	public static void main(String[] args) {
+		System.out.println(checkPossibility(new int[] { 2, 3, 1, 5 }));
 		System.out.println(checkPossibility(new int[] { 4, 2, 3 }));
 		System.out.println(checkPossibility(new int[] { 4, 2, 1 }));
 
@@ -32,7 +33,8 @@ public class Prob665_NonDecArray {
 		if (problematicIndex == 0 || problematicIndex == nums.length - 2) {
 			return true;
 		}
-		if (nums[problematicIndex - 1] <= nums[problematicIndex + 1] || nums[problematicIndex] <= nums[problematicIndex + 2])
+		if (nums[problematicIndex - 1] <= nums[problematicIndex + 1]
+				|| nums[problematicIndex] <= nums[problematicIndex + 2])
 			return true;
 		return false;
 	}

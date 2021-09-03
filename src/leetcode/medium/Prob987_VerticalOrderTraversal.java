@@ -17,23 +17,23 @@ public class Prob987_VerticalOrderTraversal {
 	}
 
 	static class Pair {
-		int x;
-		int y;
+		int col;
+		int row;
 
 		int val;
 
 		TreeNode node;
 
 		Pair(int x, int y, int val, TreeNode node) {
-			this.x = x;
-			this.y = y;
+			this.col = x;
+			this.row = y;
 			this.val = val;
 			this.node = node;
 		}
 
 		@Override
 		public String toString() {
-			return "Pair [x=" + x + ", y=" + y + ", " + ", val=" + val + "]";
+			return "Pair [x=" + col + ", y=" + row + ", " + ", val=" + val + "]";
 		}
 	}
 
@@ -51,21 +51,21 @@ public class Prob987_VerticalOrderTraversal {
 		while (!q.isEmpty()) {
 			Pair t = q.poll();
 
-			if (m.containsKey(t.x)) {
-				List<Pair> l = m.get(t.x);
+			if (m.containsKey(t.col)) {
+				List<Pair> l = m.get(t.col);
 				l.add(t);
-				m.put(t.x, l);
+				m.put(t.col, l);
 			} else {
 				List<Pair> l = new ArrayList<>();
 				l.add(t);
-				m.put(t.x, l);
+				m.put(t.col, l);
 			}
 
 			if (t.node.left != null) {
-				q.add(new Pair(t.x - 1, t.y + 1, t.node.left.val, t.node.left));
+				q.add(new Pair(t.col - 1, t.row + 1, t.node.left.val, t.node.left));
 			}
 			if (t.node.right != null) {
-				q.add(new Pair(t.x + 1, t.y + 1, t.node.right.val, t.node.right));
+				q.add(new Pair(t.col + 1, t.row + 1, t.node.right.val, t.node.right));
 			}
 		}
 		List<List<Integer>> ans = new ArrayList<>();
@@ -76,10 +76,10 @@ public class Prob987_VerticalOrderTraversal {
 
 				@Override
 				public int compare(Pair a, Pair b) {
-					if (a.y == b.y) {
+					if (a.row == b.row) {
 						return a.val - b.val;
 					} else {
-						return a.y - b.y;
+						return a.row - b.row;
 					}
 				}
 
@@ -92,7 +92,7 @@ public class Prob987_VerticalOrderTraversal {
 		}
 		return ans;
 	}
-
+//========
 	public static TreeNode prepareTree(int[] values) {
 		TreeNode[] treeArray = new TreeNode[values.length];
 		for (int i = 0; i < values.length; i++) {

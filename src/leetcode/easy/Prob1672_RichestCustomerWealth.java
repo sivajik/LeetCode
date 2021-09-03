@@ -4,9 +4,7 @@ public class Prob1672_RichestCustomerWealth {
 
 	public static void main(String[] args) {
 		System.out.println(maximumWealth(new int[][] { { 1, 2, 3 }, { 3, 2, 1 } }));
-
 		System.out.println(maximumWealth(new int[][] { { 1, 5 }, { 7, 3 }, { 3, 5 } }));
-
 	}
 
 	static public int maximumWealth(int[][] accounts) {

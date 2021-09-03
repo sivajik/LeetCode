@@ -6,8 +6,8 @@ import java.util.Map;
 public class Prob523_ContinuousSubarraySum {
 
 	public static void main(String[] args) {
-		System.out.println(checkSubarraySum(new int[] { 23, 2, 4, 6, 6 }, 7));
-		// System.out.println(checkSubarraySum(new int[] { 23, 2, 4, 6, 7 }, 13));
+		// System.out.println(checkSubarraySum(new int[] { 23, 2, 4, 6, 6 }, 7));
+		System.out.println(checkSubarraySum(new int[] { 23, 2, 4, 6, 7 }, 6));
 	}
 
 	static public boolean checkSubarraySum(int[] nums, int k) {

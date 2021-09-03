@@ -38,7 +38,7 @@ public class Prob93_RestoreIPAddresses {
 			}
 			if (value >= 0 && value <= 255) {
 				StringBuilder rollback = new StringBuilder(temp);
-				temp.append(s.substring(start, i + 1));
+				temp.append(curr);
 				if (count < 3) {
 					temp.append(".");
 				}

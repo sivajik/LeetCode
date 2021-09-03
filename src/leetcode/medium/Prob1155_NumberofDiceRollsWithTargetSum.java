@@ -28,7 +28,7 @@ public class Prob1155_NumberofDiceRollsWithTargetSum {
 		String key = "" + d + f + target;
 		if (!memo.containsKey(key)) {
 			int sum = 0;
-			for (int i = f; i >= 1; i--) { // for each face use all dice with a target-<dice_value>
+			for (int i = 1; i<=f; i++) { // for each face use all dice with a target-<dice_value>
 				sum += numRollsToTarget(d - 1, f, target - i);
 				sum = sum % mod;
 			}

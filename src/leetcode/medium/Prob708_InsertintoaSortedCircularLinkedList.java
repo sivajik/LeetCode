@@ -13,17 +13,6 @@ public class Prob708_InsertintoaSortedCircularLinkedList {
 			head.next = head;
 			return head;
 		}
-
-		if (insertVal < head.val) {
-			Node tmp = new Node(insertVal, head);
-			Node x = head;
-			while (x.next != head) {
-				x = x.next;
-			}
-			x.next = tmp;
-			return tmp;
-		}
-
 		Node prev = head;
 		Node curr = head.next;
 
