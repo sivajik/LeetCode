@@ -15,11 +15,7 @@ public class Prob1400_ConstructKPalindromeString {
 	static public boolean canConstruct(String s, int k) {
 		Map<Character, Integer> map = new HashMap<>();
 		for (char c : s.toCharArray()) {
-			if (map.containsKey(c)) {
-				map.put(c, 1 + map.get(c));
-			} else {
-				map.put(c, 1);
-			}
+			map.put(c, map.getOrDefault(c, 0) + 1);
 		}
 
 		int odds = 0;
