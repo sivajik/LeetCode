@@ -14,23 +14,25 @@ public class Prob1859_SortingTheSentence {
 	public static String sortSentence(String s) {
 		String[] res = new String[9];
 		String[] tokens = s.split("\\s+");
+		int total = 0;
 		for (String tkn : tokens) {
 			int index = tkn.charAt(tkn.length() - 1) - '1';
 			res[index] = tkn.substring(0, tkn.length() - 1);
+			total++;
 		}
 		StringBuilder sbr = new StringBuilder();
-		for (String s1 : res) {
-			if (s1 != null) {
-				sbr.append(s1);
+		for (int i = 0; i < total; i++) {
+			if (i != total - 1) {
+				sbr.append(res[i]);
 				sbr.append(" ");
+			} else {
+				sbr.append(res[i]);
 			}
 		}
-		return sbr.toString().trim();
+		return sbr.toString();
 	}
 
-	/*
-	 * useless complex version without taking fact that s can have max of 9 strings.
-	 */
+	// useless complex version without taking fact that s can have max of 9 strings.
 	public static String sortSentence1(String s) {
 		Comparator<String> cmp = new Comparator<String>() {
 
