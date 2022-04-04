@@ -28,7 +28,9 @@ public class Prob1859_SortingTheSentence {
 		return sbr.toString().trim();
 	}
 
-	// useless complex version without taking fact that s can have max of 9 strings.
+	/*
+	 * useless complex version without taking fact that s can have max of 9 strings.
+	 */
 	public static String sortSentence1(String s) {
 		Comparator<String> cmp = new Comparator<String>() {
 
