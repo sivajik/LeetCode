@@ -12,6 +12,10 @@ public class Prob3_LongestSubstringWithoutRepeatingCharacters {
 	}
 
 	static public int lengthOfLongestSubstring(String s) {
+		if (s == null || s.length() == 0) {
+			return 0;
+		}
+		
 		Set<Character> set = new HashSet<Character>();
 
 		int i = 0, j = 0;
