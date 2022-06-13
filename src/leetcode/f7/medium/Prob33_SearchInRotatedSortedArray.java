@@ -16,14 +16,14 @@ public class Prob33_SearchInRotatedSortedArray {
 
 			if (nums[mid] == target) {
 				return mid;
-			} else if (nums[l] <= nums[mid]) {
-				if (nums[l] <= target && nums[mid] >= target) {
+			} else if (nums[l] <= nums[mid]) { // first half increasing.
+				if (target >= nums[l] && target <= nums[mid]) { // does number falls here?
 					h = mid - 1;
 				} else {
 					l = mid + 1;
 				}
-			} else {
-				if (target >= nums[mid] && target <= nums[h]) {
+			} else { // first half decreasing.
+				if (target >= nums[mid] && target <= nums[h]) { // does num falls here?
 					l = mid + 1;
 				} else {
 					h = mid - 1;
