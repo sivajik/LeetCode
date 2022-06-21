@@ -9,11 +9,25 @@ public class Prob1920_BuildArrayFromPermutation {
 
 	}
 
-	static public int[] buildArray(int[] nums) {
+	static public int[] buildArray1(int[] nums) {
 		int[] op = new int[nums.length];
 		for (int i = 0; i < nums.length; i++) {
 			op[i] = nums[nums[i]];
 		}
 		return op;
+	}
+
+	// each number keep this number and other number in same place...
+	// say for number a keep a and a + b * n; then we can do a%n for first number,
+	// a/n for second
+	// number
+	static public int[] buildArray(int[] nums) {
+		for (int i = 0; i < nums.length; i++) {
+			nums[i] = nums[i] + (nums.length * (nums[nums[i]] % nums.length));
+		}
+		for (int i = 0; i < nums.length; i++) {
+			nums[i] = nums[i] / nums.length;
+		}
+		return nums;
 	}
 }
