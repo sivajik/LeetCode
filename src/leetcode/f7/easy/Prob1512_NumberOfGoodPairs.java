@@ -11,6 +11,10 @@ public class Prob1512_NumberOfGoodPairs {
 		System.out.println(numIdenticalPairs(new int[] { 1, 2, 3 }) == 0);
 	}
 
+	/*
+	 * get the frequency of each number [1,1,1,1] -> for 4 same elements sum of 3,
+	 * 2, 1 is answer so for n elements, sum upto (n-1) is (n-1)*n/2
+	 */
 	static public int numIdenticalPairs(int[] nums) {
 		Map<Integer, Integer> map = new HashMap<>();
 		for (int i = 0; i < nums.length; i++) {
